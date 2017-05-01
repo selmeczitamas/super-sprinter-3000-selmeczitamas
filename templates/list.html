@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>{{ title }} </title>
+</head>
+<body>
+    <h1>User Story Manager</h1>
+    <form action="/story" method="post">
+        <label for="add">Add new User Story </label>
+        <input type="submit" value="Add new User Story" name="add">
+    </form>
+    <br>
+    <form>
+        <table border=1 >
+            <tr>
+                {% for column in stories[0] %}
+                    <th> {{ column }} </th>
+                {% endfor %}
+            </tr>          
+                {% for row in range(1, stories|length) %}
+                    <tr>   
+                        {% for line in stories[row] %}
+                            <td>{{ line }}</td>     
+                        {% endfor %}
+                        <td>  <a href="/edit/{{stories[row][0]}}"> <img src={{ url_for("static", filename="edit.png" ) }} alt="edit" width="15" height="15" title="edit"> </a> </td>
+                        <td>  <a href="/delete/{{stories[row][0]}}"> <img src={{ url_for("static", filename="trash.png") }} alt="delete" width="15" height="15" title="delete"> </a> </td>                
+                    </tr>
+                {% endfor %}
+        </table>
+    </form>
