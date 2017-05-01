@@ -8,7 +8,7 @@
     <form action="/list" method="post">
         <label for="title">Story Title </label>
         <br>
-        <input name="title" value="{{ story[1] }}" size="41">
+        <input name="story_title" value="{{ story[1] }}" size="41">
         <br>
         <br>
         <label for="story">User Story </label>
@@ -33,7 +33,7 @@
         <br>
         <label for="status">Status </label>
         <br>
-        <select value="{{ story[6] }}" required>
+        <select name="status" value="{{ story[6] }}" required>
             <option>Planning</option>
             <option>TODO</option>
             <option>In Progress</option>
@@ -43,7 +43,7 @@
         <br>
         <br>
         <input type="submit" value="{{ button }}" name="button" align="right"/>
-        <input type="hidden" value="{{ story[0] }}" name="id" />
+        <input type="hidden" value="{{ story[0] }}" name="story_id" />
     </form>
 </body>
 </html>
